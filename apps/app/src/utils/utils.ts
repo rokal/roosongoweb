@@ -51,7 +51,7 @@ export const formatPrice = (price: number) =>
     price
   )}`;
 
-export const updateRouterQuery = (router: NextRouter, query) => {
+export const updateRouterQuery = (router: NextRouter, query: any) => {
   router.push(
     {
       pathname: router.pathname,
