@@ -1,11 +1,29 @@
-const ui = require('@acme/ui/tailwind')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  presets: [require('@vercel/examples-ui/tailwind'), ui],
-  // `ui.content` includes a path to the components that are using tailwind in @acme/ui
-  content: ui.content.concat([
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@vercel/examples-ui/**/*.js',
-  ]),
-}
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+    colors: {
+      ...colors,
+      primary: colors.green,
+      secondary: colors.yellow,
+      neutral: colors.gray,
+      grayLogo: {
+        50: "#f1f2f3",
+        100: "#d6d7dc",
+        200: "#babdc4",
+        300: "#9fa2ad",
+        400: "#838795",
+        500: "#6a6e7c",
+        600: "#525560",
+        700: "#3b3d45",
+        800: "#232529",
+        900: "#0c0c0e",
+      },
+    },
+  },
+};
