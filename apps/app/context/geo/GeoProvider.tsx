@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from "react";
-import { Geo } from "src/types/geo";
+import { Geo } from "types/geo";
 import { GeoContext } from "./GeoContext";
 
 interface Props {

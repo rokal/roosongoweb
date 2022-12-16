@@ -3,8 +3,16 @@ import usePlacesAutocomplete from "use-places-autocomplete";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import useOnclickOutside from "react-cool-onclickoutside";
 import { useRouter } from "next/router";
-import { slugifyGeoDescription } from "src/utils/utils";
-import { useGeo } from "src/context/geo";
+import { slugifyGeoDescription } from "../utils/utils";
+import { useGeo } from "context/geo";
+import { STORAGE_KEYS, useLocalStorage } from "hooks/useLocalStorage";
+
+const { PREVIOUS_SEARCH } = STORAGE_KEYS;
+
+interface LocationStorage {
+  description: string;
+  url: string;
+}
 
 export const PlacesAutocomplete = () => {
   const router = useRouter();
@@ -31,29 +39,15 @@ export const PlacesAutocomplete = () => {
   });
 
   const handleInput = (e: any) => {
-    // Update the keyword of the input element
     setValue(e.target.value);
   };
 
   const handleSelect =
     ({ description }: any) =>
     async () => {
-      // When user selects a place, we can replace the keyword without request data from API
-      // by setting the second parameter to "false"
       setValue(description, false);
       clearSuggestions();
       router.push(`/search/${slugifyGeoDescription(description)}`);
-      /*  const geocodes = await getGeocode({ address: description });
-      const latLng = await getLatLng(geocodes[0]);
-      const geo = {
-        ...latLng,
-        description,
-        terms,
-        types,
-        place_id,
-        reference,
-      };
-      console.log("📍 Coordinates: ", geo); */
     };
 
   const renderSuggestions = () =>
@@ -67,7 +61,7 @@ export const PlacesAutocomplete = () => {
         <li
           key={place_id}
           onClick={handleSelect(suggestion)}
-          className="px-3 py-2 border-solid cursor-pointer border-b-1 hover:bg-primary-100 "
+          className="px-5 py-2 text-left border-solid cursor-pointer border-b-1 hover:bg-primary-100 "
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
@@ -75,11 +69,11 @@ export const PlacesAutocomplete = () => {
     });
 
   return (
-    <div ref={ref} className="w-full">
+    <div ref={ref} className="relative w-full">
       <div className="relative w-full mt-1 rounded-md shadow-sm">
         <input
           type="text"
-          className="block w-full py-3 pr-10 border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+          className="block w-full px-5 py-3 border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
           value={value}
           onChange={handleInput}
           disabled={!ready}

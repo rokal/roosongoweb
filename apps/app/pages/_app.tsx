@@ -1,20 +1,22 @@
+import { ScriptProvider } from "context/script/ScriptProvider";
 import type { AppProps } from "next/app";
-import Head from "next/head";
-import { GOOGLE_MAP_KEY } from "src/constants";
+import Script from "next/script";
+import { useState } from "react";
+import { GOOGLE_MAP_KEY } from "../constants";
 import "../public/global.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const [loaded, setLoaded] = useState(false);
+  const googlePlacesUrl = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_KEY}&libraries=places`;
   return (
-    <>
-      <Head>
-        <script
-          async
-          defer
-          src={`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_KEY}&libraries=places`}
-        ></script>
-      </Head>
-
+    <ScriptProvider loaded={loaded}>
       <Component {...pageProps} />
-    </>
+      <Script
+        async
+        defer
+        src={googlePlacesUrl}
+        onLoad={() => setLoaded(true)}
+      />
+    </ScriptProvider>
   );
 }

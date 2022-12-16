@@ -1,6 +1,6 @@
 import { NextPage } from "next";
-import { GeoProvider } from "src/context/geo";
-import { Geo } from "src/types/geo";
+import { GeoProvider } from "context/geo";
+import { Geo } from "types/geo";
 
 interface Props {
   geo: Geo;

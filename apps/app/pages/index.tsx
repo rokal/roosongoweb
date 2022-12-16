@@ -1,25 +1,18 @@
-import { PlacesAutocomplete } from "src/components/PlacesAutocomplete";
+import Image from "next/image";
+import { PlacesAutocomplete } from "@components/PlacesAutocomplete";
+import { useScript } from "context/script/useScript";
 
 export default function Home() {
+  const scriptLoaded = useScript();
   return (
     <main className="lg:relative bg-primary-50">
       <div className="w-full h-screen pt-4 pb-20 mx-auto text-center">
         <div className="max-w-2xl px-4 m-auto sm:px-8">
           <div className="flex justify-center">
-            {/*             <img
-              className="hidden w-auto h-40"
-              src="/images/roosongo_transparent.png"
-              alt="Logo"
-              loading="lazy"
-              width={200}
-              height={250}
-            /> */}
-
-            <img
+            <Image
               className="w-auto h-32 "
               src="/images/roosongo_transparent.png"
               alt="Logo"
-              loading="lazy"
               width={150}
               height={200}
             />
@@ -39,7 +32,7 @@ export default function Home() {
             logement.
           </p>
           <div className="items-center justify-center py-6 ">
-            <PlacesAutocomplete />
+            {scriptLoaded && <PlacesAutocomplete />}
           </div>
         </div>
       </div>

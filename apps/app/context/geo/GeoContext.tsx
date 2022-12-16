@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Geo } from "src/types/geo";
+import { Geo } from "types/geo";
 
 interface State {
   geo: Geo;
