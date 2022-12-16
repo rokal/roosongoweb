@@ -1,6 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["$ALGOLIA_APP_KEY", "$ALGOLIA_APP_SECRET"],
+  "globalDependencies": [
+    "$ALGOLIA_APP_KEY",
+    "$ALGOLIA_APP_SECRET",
+    "$ROOSONGO_WEB_URL"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
