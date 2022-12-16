@@ -56,7 +56,7 @@ function PropertyCard({ property }: Props) {
             className="flex flex-1 object-cover pointer-events-none group-hover:opacity-75"
             src={property.imageUrl}
             alt="Image du logement"
-            objectFit="cover"
+            fill
             width={320}
             height={250}
           />
@@ -65,7 +65,7 @@ function PropertyCard({ property }: Props) {
             className="flex items-center justify-center"
             style={{ width: 320, height: 250 }}
           >
-            Pas d'image
+            Pas d image
           </div>
         )}
       </div>
