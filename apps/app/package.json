@@ -21,7 +21,9 @@
     "react-google-recaptcha": "^2.1.0",
     "react-cool-onclickoutside": "^1.7.0",
     "algoliasearch": "^4.13.0",
-    "axios": "^0.25.0"
+    "axios": "^0.25.0",
+    "classnames": "^2.3.1",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

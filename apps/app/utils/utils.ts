@@ -1,7 +1,6 @@
 export const slugifyGeoDescription = (txt: string) =>
   txt.split(", ").join("__");
-export const getDescriptionFromSlug = (txt: string) =>
-  txt.split("__").join(", ");
+export const unslugifyDescription = (txt: string) => txt.split("__").join(", ");
 
 import { NextRouter } from "next/router";
 

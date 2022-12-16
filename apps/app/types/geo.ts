@@ -36,3 +36,9 @@ export interface Geo {
   place_id: string;
   types: string[];
 }
+
+export interface AlgoliaQueryParams {
+  aroundRadius?: number;
+  aroundLatLng?: string;
+  insideBoundingBox?: number[][];
+}
