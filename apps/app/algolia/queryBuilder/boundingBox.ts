@@ -4,7 +4,7 @@ const EXPANDED_RADIUS = 2000; // in meters = 2km
 
 const getBBox = (geo: Geo) => {
   const northeast = geo?.geometry?.bounds?.northeast;
-  const southwest = geo.geometry?.bounds?.southwest;
+  const southwest = geo?.geometry?.bounds?.southwest;
   if (!northeast || !southwest) return;
   const boundingBox = [
     northeast?.lat,

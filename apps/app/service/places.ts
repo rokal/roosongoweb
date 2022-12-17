@@ -12,6 +12,6 @@ export const getGeoFromAddress = async (address: string) => {
     return geo;
   } catch (error) {
     console.log(error);
-    return {} as Geo;
+    return null;
   }
 };
