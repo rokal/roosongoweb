@@ -4,7 +4,7 @@ import { SearchResponse } from "types/searchResponse";
 
 export const searchProperties = async (searchParams: SearchParams) => {
   const res = await axios.post(
-    "http://localhost:3000/api/search",
+    `${process.env.ROOSONGO_WEB_URL}/api/search`,
     searchParams
   );
   const searchResult: SearchResponse = res.data?.results;

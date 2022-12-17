@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { GeoProvider } from "context/geo";
 import { Geo } from "types/geo";
 
@@ -45,11 +45,25 @@ const SearchPage: NextPage<Props> = ({
   );
 };
 
-SearchPage.getInitialProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query } = context;
   const address = unslugifyDescription(query.geoSlug as string);
-  const geo: Geo = await getGeoFromAddress(address);
-  const searchResults = await searchProperties({ geo });
-  return { geo, searchResults: searchResults, address };
+  const geo = await getGeoFromAddress(address);
+  if (!geo) {
+    return {
+      notFound: true,
+    };
+  } else {
+    const searchResults = await searchProperties({ geo });
+    return {
+      props: {
+        geo,
+        searchResults: searchResults,
+        address,
+      },
+    };
+  }
 };
+ 
 
 export default SearchPage;

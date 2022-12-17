@@ -32,7 +32,7 @@ function PropertyCard({ property }: Props) {
             </span>
           </div>
         </div>
-        <div className="flex flex-col justify-center" title="Toilette commune">
+        {/*  <div className="flex flex-col justify-center" title="Toilette commune">
           <div className="flex px-4 ">
             <span className="flex flex-col justify-center">
               <FaToilet />
@@ -43,7 +43,7 @@ function PropertyCard({ property }: Props) {
                 : "Toilettes commune"}
             </span>
           </div>
-        </div>
+        </div> */}
       </dd>
       <dt className="sr-only">Actions</dt>
     </>
@@ -52,18 +52,18 @@ function PropertyCard({ property }: Props) {
     <div className="flex flex-col col-span-1 text-center bg-white divide-y divide-gray-200 rounded-lg shadow">
       <div className="flex flex-col flex-1 overflow-hidden max-h-50">
         {property.imageUrl ? (
-          <Image
-            className="flex flex-1 object-cover pointer-events-none group-hover:opacity-75"
-            src={property.imageUrl}
-            alt="Image du logement"
-            fill
-            width={320}
-            height={250}
-          />
+          <div className="relative flex items-center justify-center h-80">
+            <Image
+              className="flex flex-1 object-cover pointer-events-none group-hover:opacity-75"
+              src={property.imageUrl}
+              alt="Image du logement"
+              fill
+            />
+          </div>
         ) : (
           <div
             className="flex items-center justify-center"
-            style={{ width: 320, height: 250 }}
+            style={{ width: 320, height: 320 }}
           >
             Pas d image
           </div>
