@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PlacesAutocomplete } from "@components/PlacesAutocomplete";
-import { useScript } from "context/script/useScript";
+import { useScript } from "@lib/context/script/useScript";
 
 export default function Home() {
   const scriptLoaded = useScript();

@@ -3,9 +3,9 @@ import usePlacesAutocomplete from "use-places-autocomplete";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import useOnclickOutside from "react-cool-onclickoutside";
 import { useRouter } from "next/router";
-import { slugifyGeoDescription } from "../utils/utils";
-import { useGeo } from "context/geo";
-import { STORAGE_KEYS, useLocalStorage } from "hooks/useLocalStorage";
+import { slugifyGeoDescription } from "../lib/utils/utils";
+import { useGeo } from "@lib/context/geo";
+import { STORAGE_KEYS, useLocalStorage } from "@lib/hooks/useLocalStorage";
 
 const { PREVIOUS_SEARCH } = STORAGE_KEYS;
 

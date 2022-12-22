@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getAlgoliaClient } from "../../algolia/client";
-import { getQuery } from "../../algolia/queryBuilder/getQuery";
-import { SearchParams } from "../../types/search";
+import { getAlgoliaClient } from "../../lib/algolia/client";
+import { getQuery } from "../../lib/algolia/queryBuilder/getQuery";
+import { SearchParams } from "../../lib/types/search";
 
 const algoliaClient = getAlgoliaClient();
 

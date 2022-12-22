@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaBed, FaBath, FaToilet } from "react-icons/fa";
-import { SearchProperty } from "types/searchResponse";
-import { formatPrice } from "utils/utils";
+import { SearchProperty } from "@lib/types/searchResponse";
+import { formatPrice } from "@lib/utils/utils";
 interface Props {
   property: SearchProperty;
 }

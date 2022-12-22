@@ -1,4 +1,4 @@
-import { useSearchResults } from "context/search";
+import { useSearchResults } from "@lib/context/search";
 import Link from "next/link";
 import PropertyCard from "./PropertyCard";
 
