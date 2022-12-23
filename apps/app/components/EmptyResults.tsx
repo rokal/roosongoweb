@@ -1,4 +1,4 @@
-import { useSearchResults } from "context/search";
+import { useSearchResults } from "@lib/context/search";
 
 export const EmptyResults = () => {
   const { result } = useSearchResults();

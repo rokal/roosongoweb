@@ -3,7 +3,9 @@
   "globalDependencies": [
     "$ALGOLIA_APP_KEY",
     "$ALGOLIA_APP_SECRET",
-    "$ROOSONGO_WEB_URL"
+    "$ROOSONGO_WEB_URL",
+    "$STRAPI_WEB_APP_KEY",
+    "$ROOSONGO_CLIENT_API_HOST"
   ],
   "pipeline": {
     "build": {

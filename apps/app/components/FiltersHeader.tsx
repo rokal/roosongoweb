@@ -1,4 +1,4 @@
-import { useScript } from "context/script";
+import { useScript } from "@lib/context/script";
 import { PlacesAutocomplete } from "./PlacesAutocomplete";
 
 const FilterHeader = () => {

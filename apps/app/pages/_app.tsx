@@ -1,8 +1,8 @@
-import { ScriptProvider } from "context/script/ScriptProvider";
+import { ScriptProvider } from "@lib/context/script/ScriptProvider";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useState } from "react";
-import { GOOGLE_MAP_KEY } from "../constants";
+import { GOOGLE_MAP_KEY } from "../lib/constants";
 import "../public/global.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {

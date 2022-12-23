@@ -1,13 +1,13 @@
 import { GetServerSideProps, NextPage } from "next";
-import { GeoProvider } from "context/geo";
-import { Geo } from "types/geo";
+import { GeoProvider } from "@lib/context/geo";
+import { Geo } from "@lib/types/geo";
 
-import { getGeoFromAddress } from "service/places";
-import { unslugifyDescription } from "utils/utils";
-import { searchProperties } from "service/properties";
-import { SearchResponse } from "types/searchResponse";
-import { SearchContextProvider } from "context/search";
-import { Header } from "@components/Header";
+import { getGeoFromAddress } from "@lib/service/places";
+import { unslugifyDescription } from "@lib/utils/utils";
+import { searchProperties } from "@lib/service/properties";
+import { SearchResponse } from "@lib/types/searchResponse";
+import { SearchContextProvider } from "@lib/context/search";
+import { Header } from "@components/layout/Header";
 import Footer from "@components/Footer";
 import { SearchTitle } from "@components/SearchTitle";
 import { EmptyResults } from "@components/EmptyResults";
@@ -64,6 +64,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 };
- 
 
 export default SearchPage;
