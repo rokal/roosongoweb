@@ -80,3 +80,5 @@ export const TextArea = forwardRef<HTMLTextAreaElement, IProps>(
     );
   }
 );
+
+TextArea.displayName = "TextArea"

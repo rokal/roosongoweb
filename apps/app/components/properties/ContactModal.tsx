@@ -2,6 +2,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useRef } from "react";
 import { FaUserTie } from "react-icons/fa";
 
+import PropertyContact from './Contact'
+
 interface Props {
   show: boolean;
   contacts: any[];
