@@ -8,11 +8,12 @@ import { searchProperties } from "@lib/service/properties";
 import { SearchResponse } from "@lib/types/searchResponse";
 import { SearchContextProvider } from "@lib/context/search";
 import { Header } from "@components/layout/Header";
-import Footer from "@components/Footer";
+
 import { SearchTitle } from "@components/SearchTitle";
 import { EmptyResults } from "@components/EmptyResults";
 import PropertyList from "@components/PropertyList";
 import FilterHeader from "@components/FiltersHeader";
+import Footer from "@components/layout/Footer";
 
 interface Props {
   geo: Geo;

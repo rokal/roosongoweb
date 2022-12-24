@@ -3,17 +3,24 @@
   "globalDependencies": [
     "$ALGOLIA_APP_KEY",
     "$ALGOLIA_APP_SECRET",
-    "$ROOSONGO_WEB_URL",
+    "$ROOSONGO_CLIENT_API_HOST",
     "$STRAPI_WEB_APP_KEY",
-    "$ROOSONGO_CLIENT_API_HOST"
+    "$ROOSONGO_SERVER_API_HOST"
   ],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "dist/**"
+      ]
     },
     "test": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": []
     },
     "lint": {

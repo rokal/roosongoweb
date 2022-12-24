@@ -44,11 +44,11 @@ export const PlacesAutocomplete = () => {
 
   const handleSelect =
     ({ description }: any) =>
-    async () => {
-      setValue(description, false);
-      clearSuggestions();
-      router.push(`/search/${slugifyGeoDescription(description)}`);
-    };
+      async () => {
+        setValue(description, false);
+        clearSuggestions();
+        router.push(`/search/${slugifyGeoDescription(description)}`);
+      };
 
   const renderSuggestions = () =>
     data.map((suggestion) => {
@@ -83,7 +83,7 @@ export const PlacesAutocomplete = () => {
           <MapPinIcon className="w-7 h-7 " aria-hidden="true" />
         </div>
       </div>
-      {status === "OK" && <ul className="bg-white">{renderSuggestions()}</ul>}
+      {status === "OK" && <ul className="bg-white absolute top-15">{renderSuggestions()}</ul>}
     </div>
   );
 };
