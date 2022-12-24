@@ -4,7 +4,7 @@ import { SearchResponse } from "@lib/types/searchResponse";
 
 export const searchProperties = async (searchParams: SearchParams) => {
   const res = await axios.post(
-    `${process.env.VERCEL_URL}/api/search`,
+    `http${process.env.LOCAL_ENV ? '' : 's'}://${process.env.VERCEL_URL}/api/search`,
     searchParams
   );
   const searchResult: SearchResponse = res.data?.results;

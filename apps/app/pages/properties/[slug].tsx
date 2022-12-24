@@ -1,8 +1,6 @@
 import { RecoilRoot } from "recoil";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { propertyAtom } from "../../lib/recoil/propertyAtom";
-import { getPropertySlugs } from "../../lib/service/getPropertySlugs";
-import { getProperty } from "../../lib/service/getProperty";
 import { PropertyTitle } from "@components/properties/PropertyTitle";
 import { Property } from "@lib/types/property";
 import Layout from "@components/Layout";
@@ -13,6 +11,8 @@ import PriceSection from "@components/properties/PriceSection";
 import PropertySwiper from "@components/properties/PropertySwiper";
 import { PropertyDescription } from "@components/properties/PropertyDescription";
 import { PropertyLocation } from "@components/properties/PropertyLocation";
+import { getProperty } from "pages/api/properties/[slug]";
+import { getSlugs } from "pages/api/propertySlugs";
 
 interface Props {
   property: Property;
@@ -53,7 +53,7 @@ const PropertyDetails: NextPage<Props> = ({ property }: Props) => {
 export default PropertyDetails;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const properties = await getPropertySlugs();
+  const properties = await getSlugs();
   const paths = properties.map((slug) => {
     return {
       params: {
@@ -76,6 +76,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   try {
     const property = await getProperty(slug as string);
+    if (!property) {
+      return {
+        notFound: true,
+      };
+    }
     return {
       props: {
         property,

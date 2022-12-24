@@ -5,7 +5,8 @@
     "$ALGOLIA_APP_SECRET",
     "$VERCEL_URL",
     "$STRAPI_WEB_APP_KEY",
-    "$ROOSONGO_SERVER_API_HOST"
+    "$ROOSONGO_SERVER_API_HOST",
+    "$LOCAL_ENV"
   ],
   "pipeline": {
     "build": {
