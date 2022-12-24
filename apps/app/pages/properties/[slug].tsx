@@ -63,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   return {
     paths: paths,
-    fallback: "blocking",
+    fallback: true,
   };
 };
 
@@ -80,6 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       props: {
         property,
       },
+      revalidate: 3600
     };
   } catch (error) {
     return {
