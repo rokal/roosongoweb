@@ -76,11 +76,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   try {
     const property = await getProperty(slug as string);
-    if (!property) {
-      return {
-        notFound: true,
-      };
-    }
     return {
       props: {
         property,
