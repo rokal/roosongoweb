@@ -59,8 +59,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         geo,
-        searchResults: searchResults,
         address,
+        searchResults: searchResults,
       },
     };
   }

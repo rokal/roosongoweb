@@ -11,8 +11,8 @@ import PriceSection from "@components/properties/PriceSection";
 import PropertySwiper from "@components/properties/PropertySwiper";
 import { PropertyDescription } from "@components/properties/PropertyDescription";
 import { PropertyLocation } from "@components/properties/PropertyLocation";
-import { getProperty } from "pages/api/properties/[slug]";
-import { getSlugs } from "pages/api/propertySlugs";
+import { getProperty, getSlugs } from "@lib/service/properties";
+
 
 interface Props {
   property: Property;
@@ -53,8 +53,8 @@ const PropertyDetails: NextPage<Props> = ({ property }: Props) => {
 export default PropertyDetails;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const properties = await getSlugs();
-  const paths = properties.map((slug) => {
+  const slugs = await getSlugs();
+  const paths = slugs.map((slug) => {
     return {
       params: {
         slug,
@@ -83,6 +83,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       revalidate: 3600
     };
   } catch (error) {
+    console.log(error)
     return {
       notFound: true,
     };
