@@ -9,8 +9,8 @@ const PriceSection = () => {
   // const plausible = usePlausible();
   if (!property) return null;
   return (
-    <div className="flex justify-around my-4">
-      <h2 className="inline-flex text-xl text-center rounded-lg md:text-2xl">
+    <div className="flex justify-center sm:justify-around my-4 flex-col sm:flex-row">
+      <h2 className="inline-flex text-xl text-center justify-center mb-4 sm:mb-0 rounded-lg md:text-2xl">
         <span>{formatPrice(property.price)}</span>
         <span className="flex items-end text-sm ">/mois</span>
       </h2>
@@ -20,9 +20,9 @@ const PriceSection = () => {
           setModalState(true);
           //plausible("ld:show-lead-modal");
         }}
-        className="inline-flex items-center px-4 text-sm text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+        className="inline-flex items-center justify-center px-4 text-sm text-white border border-transparent rounded-md shadow-sm bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
       >
-        Contacter l agent
+        Contacter l'agent
         <EnvelopeIcon className="w-5 h-5 ml-2 -mr-1" aria-hidden="true" />
       </button>
     </div>

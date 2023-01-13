@@ -12,6 +12,7 @@ import PropertySwiper from "@components/properties/PropertySwiper";
 import { PropertyDescription } from "@components/properties/PropertyDescription";
 import { PropertyLocation } from "@components/properties/PropertyLocation";
 import { getProperty, getSlugs } from "@lib/service/properties";
+import { PropertyImages } from "@components/properties/PropertyImage";
 
 
 interface Props {
@@ -32,7 +33,8 @@ const PropertyDetails: NextPage<Props> = ({ property }: Props) => {
       <Layout title={`Details du logement - ${property.title}`}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6">
           <PropertyTitle />
-          <PropertySwiper />
+          {/*  <PropertySwiper /> */}
+          <PropertyImages />
           <PriceSection />
           <PropertyInfoBoxes />
           <PropertyDescription />
