@@ -13,14 +13,14 @@ const getStaticMapSrc = ({
 }: StaticImgParams) => {
   //  return `${baseUrl}?center=${latLng}&zoom=14&size=${widthCrossHeight}&language=fr&key=${key}&maptype=roadmap&markers=color:green%7Clabel:R|${latLng}`;
   const baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
-  const key = "AIzaSyCMHlZuY5uw5lE8bnBTM6uhLHJX7yFrwoE";
+  const key = process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY
   return `${baseUrl}?center=${latLng}&zoom=${zoom}&size=${widthCrossHeight}&language=fr&key=${key}&maptype=roadmap&markers=icon:https://storage.googleapis.com/hk-roosongo-sandbox-uploads/roosongo-stg/roosongo_map_pin_64x64_6715937880/roosongo_map_pin_64x64_6715937880.png?updated_at=2022-09-10T15:47:44.975Z|${latLng}&style=feature:road%7Celement:labels%7Cvisibility:off`;
 };
 
 export const PropertyLocation = () => {
   const property = useProperty();
   const url = getStaticMapSrc({
-    latLng: `${property?.coordinates?.lat},${property?.coordinates?.lng}`,
+    latLng: `${property?.location?.latitude},${property?.location?.longitude}`,
     zoom: 16,
   });
   return (

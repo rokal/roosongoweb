@@ -56,6 +56,7 @@ export default PropertyDetails;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = await getSlugs();
+  console.log(slugs)
   const paths = slugs.map((slug) => {
     return {
       params: {

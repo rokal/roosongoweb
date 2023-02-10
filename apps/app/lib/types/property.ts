@@ -19,21 +19,21 @@ export interface PropertyContact {
 
 export interface Property {
   id: number;
-  price: number;
+  pricePerDay: number;
+  pricePerMonth: number;
+  priceForSale: number;
   title: string;
   slug: string;
   description?: string;
   availableAt?: Date;
-  images?: MediaImage[];
-  coverImage: MediaImage;
-  imageUrl: string;
-  privateBathroom?: boolean;
-  privateToilet?: boolean;
-  unifamilial?: boolean;
-  privateKitchen?: boolean;
+  photos?: MediaImage[];
   nbBedrooms?: number;
-  nbNeighboors?: number;
+  nbUnits?: number;
   agency?: any;
-  coordinates?: LatLng;
-  keywords: string;
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
+  keywords?: string;
+  amenities?: string[]
 }

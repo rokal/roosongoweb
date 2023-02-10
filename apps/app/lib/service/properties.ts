@@ -12,7 +12,7 @@ export const searchProperties = async (searchParams: SearchParams) => {
     const results = await algoliaClient.search("", algoliaQuery);
     return results
   } catch (error) {
-    console.log("-------->", JSON.stringify({ error }, null, 2));
+    console.log(JSON.stringify({ error }, null, 2));
     return []
   }
 };

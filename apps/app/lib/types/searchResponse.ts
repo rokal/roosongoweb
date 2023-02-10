@@ -10,23 +10,21 @@ interface ApiResponseMeta {
 
 export interface SearchProperty {
   objectID: string;
-  price: number;
+  pricePerDay: number;
+  pricePerMonth?: number;
+  priceForSale?: number;
   title: string;
   slug: string;
   description?: string;
   availableAt?: Date;
-  city: string;
-  privateBathroom?: boolean;
-  privateToilet?: boolean;
-  unifamilial?: boolean;
-  privateKitchen?: boolean;
   nbBedrooms?: number;
-  nbNeighboors?: number;
+  nbUnits?: number;
   _geoloc?: {
     lat: number;
     lng: number;
   };
-  imageUrl: string;
+  photos?: string[];
+  amenities?: string[]
 }
 
 export interface ApiResponse<T extends { id?: number }> {

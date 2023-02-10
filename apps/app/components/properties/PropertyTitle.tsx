@@ -11,7 +11,7 @@ export const PropertyTitle = () => {
   if (!property) return null;
   return (
     <div className="items-center py-5 align-middle md:flex">
-      <div className="flex items-center justify-center mr-2 sm:flex lg:justify-start">
+      <div className="flex items-center justify-center mr-2 sm:flex lg:justify-start min-w-full">
         <button className="flex pr-4 mr-2" onClick={() => router.back()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -27,9 +27,11 @@ export const PropertyTitle = () => {
               d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
             />
           </svg>
-          <span className="ml-2">Précédent</span>
+          <span className="ml-2 hidden md:flex">Précédent</span>
         </button>
-        {loaded && <PlacesAutocomplete />}
+        {loaded && (<div className="md:w-full">
+          <PlacesAutocomplete />
+        </div>)}
       </div>
       <h1
         title={property.title}
