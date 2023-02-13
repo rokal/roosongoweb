@@ -61,7 +61,8 @@ export const PlacesAutocomplete = () => {
         <li
           key={place_id}
           onClick={handleSelect(suggestion)}
-          className="px-5 py-2 text-left border-solid cursor-pointer border-b-1 hover:bg-primary-100 "
+          className="px-5 py-2 text-left border-solid cursor-pointer border-b-1 hover:bg-primary-100 border-b"
+          title={`${main_text} ${secondary_text} `}
         >
           <strong>{main_text}</strong> <small>{secondary_text}</small>
         </li>
@@ -79,11 +80,11 @@ export const PlacesAutocomplete = () => {
           disabled={!ready}
           placeholder="Ville, Quartier, Zone ..."
         />
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none bg-white">
-          <MapPinIcon className="w-7 h-7 " aria-hidden="true" />
+        <div className="absolute inset-y-2 right-0 flex items-center pr-3 pointer-events-none ">
+          <MapPinIcon className="w-7 h-7 bg-white " aria-hidden="true" />
         </div>
       </div>
-      {status === "OK" && <ul className="bg-white absolute top-15">{renderSuggestions()}</ul>}
+      {status === "OK" && <ul className="bg-white absolute top-15 z-10 w-full">{renderSuggestions()}</ul>}
     </div>
   );
 };
